@@ -1,0 +1,332 @@
+<section class="main-content">
+  <app-sidenav></app-sidenav>
+  <app-header></app-header>
+
+  <div class="main-body py-5 pe-5 pb-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between pb-4">
+            <div class="d-flex align-items-center gap-2">
+              <h4 class="fw-bold h5 m-0">Create Purchase Order</h4>
+              <span [ngStyle]="{'cursor': 'pointer'}" [popover]="'This is the content of the popover!'"
+                [adaptivePosition]="true" container="body" boundariesElement="viewport" placement="right"
+                triggers="mouseenter:mouseleave">
+                <svg-icon src="../../../assets/icons/purchase/bookmark.svg"></svg-icon>
+              </span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <svg-icon src="../../../assets/icons/purchase/function.svg"></svg-icon>
+              <h3 class="fw-semibold text-primary fs-6 mb-0">Functional Flow</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="shadow rounded p-5 position-relative">
+        <div class="row">
+          <div class="col-lg-8 col-sm-8 col-md-8 col-12">
+            <div class="progressBar mb-5 pb-3">
+              <ul class="progressbar">
+                <li [ngClass]="{'active': currentStep === 1}">General Details</li>
+                <li [ngClass]="{'active': currentStep === 2}">Supplier & Payment Details</li>
+                <li [ngClass]="{'active': currentStep === 3}">Material Details</li>
+                <li [ngClass]="{'active': currentStep === 4}">Taxes & Charges Details</li>
+                <li [ngClass]="{'active': currentStep === 5}">Confirmation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <form [formGroup]="purchaseForm" (ngSubmit)="onSaveAndNext()" (ngSubmit)="onSubmit()" autocomplete="off">
+          <div class="formse mb-0">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-12">
+                <h3 class="mb-3 fw-bolder fs-6">General Details</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 col-sm-8 col-md-8 col-12">
+                <div class="row gap-0">
+                  <!-- PO number -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="ponumber" class="form-label">PO number <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <input type="text" id="ponumber" class="form-control" formControlName="ponumber" appAllowOnlyNumbers appMaxlength="10">
+                        </div>
+                        <small *ngIf="purchaseForm.get('ponumber')?.touched && purchaseForm.get('ponumber')?.invalid"
+                          class="text-danger">
+                          PO number is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PO date -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="POdate" class="form-label">PO date <span class="text-danger">*</span></label>
+                        <div class="input-group date-with-icon">
+                          <input type="text" id="POdate" class="form-control custom-datepicker" bsDatepicker
+                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }" placeholder="Select Date"
+                            appPreventTextInput formControlName="POdate">
+                        </div>
+                        <small *ngIf="purchaseForm.get('POdate')?.touched && purchaseForm.get('POdate')?.invalid"
+                          class="text-danger">
+                          PO date is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Unit -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Unit" class="form-label">Unit <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <input type="text" id="Unit" class="form-control" formControlName="Unit"
+                            placeholder="Unit ID & name" appAllowTextAndNumbers>
+                        </div>
+                        <small *ngIf="purchaseForm.get('Unit')?.touched && purchaseForm.get('Unit')?.invalid"
+                          class="text-danger">
+                          Unit is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Ship to -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Shipto" class="form-label">Ship to <span class="text-danger">*</span></label>
+                        <div class="input-group select-with-icon">
+                          <select class="form-select" id="Shipto" formControlName="Shipto">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                        <small *ngIf="purchaseForm.get('Shipto')?.touched && purchaseForm.get('Shipto')?.invalid"
+                          class="text-danger">
+                          Ship to is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Project code -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Projectcode" class="form-label">Project code</label>
+                        <div class="input-group select-with-icon">
+                          <select class="form-select" id="Projectcode" formControlName="Projectcode">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Buyer -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Buyer" class="form-label">Buyer</label>
+                        <div class="input-group select-with-icon">
+                          <select class="form-select" id="Buyer" formControlName="Buyer">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Category -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Category" class="form-label">Category <span>*</span></label>
+                        <div class="input-group select-with-icon">
+                          <select class="form-select" id="Category" formControlName="Category">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                        <small *ngIf="purchaseForm.get('Category')?.touched && purchaseForm.get('Category')?.invalid"
+                          class="text-danger">
+                          Category is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Type -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Type" class="form-label">Type <span>*</span></label>
+                        <div class="input-group">
+                          <input type="text" id="Type" class="form-control" formControlName="Type" appAllowOnlyText>
+                        </div>
+                        <small *ngIf="purchaseForm.get('Type')?.touched && purchaseForm.get('Type')?.invalid"
+                          class="text-danger">
+                          Type is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Nature of PO -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="NaturePO" class="form-label">Nature of PO</label>
+                        <div class="input-group">
+                          <div class="form-check form-check-inline mb-0">
+                            <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" formControlName="NaturePO" name="NaturePO">
+                            <label class="form-check-label" for="inlineRadio1">Open</label>
+                          </div>
+                          <div class="form-check form-check-inline mb-0">
+                            <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" formControlName="NaturePO" name="NaturePO">
+                            <label class="form-check-label" for="inlineRadio2">Closed</label>
+                          </div>
+                          <div class="form-check form-check-inline mb-0">
+                            <input class="form-check-input" type="radio" id="inlineRadio3" value="option3" formControlName="NaturePO" name="NaturePO">
+                            <label class="form-check-label" for="inlineRadio3">Multiple open</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Valid from -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="row gx-2">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="empfiled">
+                          <div class="input-group mb-4">
+                            <label for="Validfrom" class="form-label">Valid from</label>
+                            <div class="input-group date-with-icon">
+                              <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
+                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
+                                placeholder="dd/mm/yyyy" id="Validfrom" appPreventTextInput formControlName="Validfrom">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Valid to -->
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="empfiled">
+                          <div class="input-group mb-4">
+                            <label for="Validto" class="form-label">Valid to</label>
+                            <div class="input-group date-with-icon">
+                              <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
+                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
+                                placeholder="dd/mm/yyyy" id="Validto" appPreventTextInput formControlName="Validto">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Required date -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Requireddate" class="form-label">Required date <span
+                            class="text-danger">*</span></label>
+                        <div class="input-group date-with-icon">
+                          <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
+                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }" placeholder="dd/mm/yyyy"
+                            id="Requireddate" appPreventTextInput formControlName="Requireddate">
+                        </div>
+                        <small
+                          *ngIf="purchaseForm.get('Requireddate')?.touched && purchaseForm.get('Requireddate')?.invalid"
+                          class="text-danger">
+                          Required date is required.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Attachments -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Attachments" class="form-label">Attachments</label>
+                        <div class="input-group">
+                          <div class="upload-container w-100">
+                            <input type="file" id="Attachments" class="file-upload" formControlName="Attachments">
+                            <label for="Attachments" class="file-upload-label">
+                              Click to upload <span> or drag and drop</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Sales order -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="Salesorder" class="form-label">Sales order</label>
+                        <div class="input-group">
+                          <input type="text" id="Salesorder" class="form-control" formControlName="Salesorder" appAllowTextAndNumbers>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Document number -->
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                    <div class="empfiled">
+                      <div class="input-group mb-4">
+                        <label for="docnumber" class="form-label">Document number</label>
+                        <div class="input-group">
+                          <input type="text" id="docnumber" class="form-control" formControlName="docnumber" appAllowOnlyNumbers>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form buttons -->
+                <div class="formse">
+                  <div class="row align-items-center">
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+                      <div class="formsebtn d-flex align-items-center justify-content-between mb-2 mt-3">
+                        <div class="backclass">
+                          <button class="backpart text-decoration-none border-0 bg-white" [disabled]="currentStep === 1"
+                            (click)="goBack()">Back</button>
+                        </div>
+                        <div class="savesec d-flex align-items-center justify-content-end gap-3">
+                          <button type="button"
+                            class="btn btn-outline-primary rounded-5 px-5 py-2 fw-bold">Clear</button>
+                          <button type="submit" class="btn btn-outline-secondary rounded-5 px-5 py-2 fw-bold"
+                            [disabled]="purchaseForm.invalid">Save</button>
+                          <button type="submit" class="btn btn-secondary rounded-5 px-5 py-2 fw-bold"
+                            [disabled]="purchaseForm.invalid" (click)="next()">Next</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 col-md-2 col-12"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 col-md-4 col-12">
+                <div class="rightimag position-absolute bottom-0 text-end">
+                  <img src="../../../assets/images/purchase/rightimg.png" class="img-fluid w-50" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>

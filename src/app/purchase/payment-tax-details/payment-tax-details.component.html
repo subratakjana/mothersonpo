@@ -1,0 +1,242 @@
+<section class="main-content">
+  <app-sidenav></app-sidenav>
+  <app-header></app-header>
+  <div class="main-body py-5 pe-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-12">
+          <div class="page-title-box d-sm-flex align-items-center justify-content-between pb-4">
+            <div class="d-flex align-items-center gap-2">
+              <h4 class="fw-bold h5 m-0">Create Purchase Order</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="shadow rounded p-5 position-relative">
+        <div class="row">
+          <div class="col-lg-8 col-sm-8 col-md-8 col-12">
+            <div class="progressBar mb-5 pb-3">
+              <ul class="progressbar">
+                <li [ngClass]="{'active': currentStep === 1}">General Details</li>
+                <li [ngClass]="{'active': currentStep === 2}">Supplier & Payment Details</li>
+                <li [ngClass]="{'active': currentStep === 3}">Material Details</li>
+                <li [ngClass]="{'active': currentStep === 4}">Taxes & Charges Details</li>
+                <li [ngClass]="{'active': currentStep === 5}">Confirmation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <form [formGroup]="paymentDetailsForm" (ngSubmit)="onSaveAndNext()" (ngSubmit)="onSubmit()" autocomplete="off">
+          <div class="formse mb-0">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-12">
+                <h3 class="mb-3 fw-bolder fs-6">Taxes Details</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+                <div class="formse mb-4">
+                  <div class="row gap-0">
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+                      <div class="tableview overflow-hidden rounded-3">
+                        <div class="d-flex px-4 py-1 align-items-center" role="search">
+                          <svg-icon style="transform: scale(1.3);"
+                            src="../../../assets/icons/purchase/search-table.svg"></svg-icon>
+                          <input class="form-control border-0 fs-6 ps-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table rounded-3 mb-0">
+                            <thead>
+                              <tr>
+                                <th scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </th>
+                                <th scope="col">#</th>
+                                <th scope="col">Material/Services</th>
+                                <th scope="col">HSN/SAC code</th>
+                                <th scope="col">Taxes</th>
+                                <th scope="col">Total Sec. Tax Val.</th>
+                                <th scope="col">Total Tax Val.</th>
+                                <th scope="col">Total Item Val.</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                              <tr>
+                                <td scope="col text-center">
+                                  <div class="text-center">
+                                    <input class="form-check-input" type="checkbox" value="">
+                                  </div>
+                                </td>
+                                <td>1</td>
+                                <td>A1AH271481HB0A | CLAMP HEATER PIPE - LHD</td>
+                                <td>87089900</td>
+                                <td>SGST &#64;2.5%</td>
+                                <td>₹0</td>
+                                <td>₹9,599.28</td>
+                                <td>₹1,91,985.60</td>
+                              </tr>
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <td colspan="6">
+                                  <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center gap-3">
+                                      <small class="text-start fw-semibold" style="color: #594170;"><button
+                                          type="submit"
+                                          class="btn btn-primary rounded-5 px-5 py-2 fw-medium btn-sm">Reset to
+                                          Default</button></small>
+                                      <small class="text-start fw-semibold" style="color: #594170;">Remove All
+                                        Taxes</small>
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-3">
+                                      <div class="fw-semibold text-primary fs-6 cursoer" data-bs-toggle="offcanvas"
+                                        data-bs-target="#addexp" aria-controls="addexp" style="cursor: pointer;"><i
+                                          class="bi bi-plus-lg text-primary fw-semibold fs-6 me-2"></i>
+                                        <small>Add Global Taxes</small></div>
+                                      <div class="fw-semibold text-primary fs-6 cursoer" data-bs-toggle="offcanvas"
+                                        data-bs-target="#addexp" aria-controls="addexp" style="cursor: pointer;"><i
+                                          class="bi bi-plus-lg text-primary fw-semibold fs-6 me-2"></i>
+                                        <small>Add Charges</small></div>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-3">
+                                      <small class="text-start fw-semibold" style="color: #594170;">Total Charges Value:
+                                        ₹0.00</small>
+                                      <small class="text-start fw-semibold" style="color: #594170;">Total Global Taxes
+                                        Value: ₹0.00</small>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="text-end" colspan="2"><small class="text-end"><strong
+                                      style="color: #4D4D4D;">Total Tax Value: ₹9,599.28</strong></small></td>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>                     
+                      </div>
+                      <div class="tablereport py-3 text-end">
+                        <div><small class="text-end fs-6" style="color: #4D4D4D;"><strong> Total PO Value:
+                            ₹2,01,584.90</strong></small></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="formse">
+                  <div class="row align-items-center">
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+                      <div class="formsebtn d-flex align-items-center justify-content-between mb-2 mt-3">
+                        <div class="backclass">
+                          <button class="backpart text-decoration-none border-0 bg-white" [disabled]="currentStep === 2"
+                            (click)="goBack()">Back</button>
+                        </div>
+                        <div class="savesec d-flex align-items-center justify-content-end gap-3">
+                          <button type="button"
+                            class="btn btn-outline-primary rounded-5 px-5 py-2 fw-bold">Clear</button>
+                          <button type="submit" class="btn btn-outline-secondary rounded-5 px-5 py-2 fw-bold"
+                            [disabled]="paymentDetailsForm.invalid">Save</button>
+                          <button type="submit" class="btn btn-secondary rounded-5 px-5 py-2 fw-bold"
+                            [disabled]="paymentDetailsForm.invalid" (click)="next()">Next</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-2 col-md-2 col-12"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -114,7 +114,7 @@ export class LoginOtpComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.verificationForm.valid) {
-      this.router.navigate(['/employee-list']);
+      this.router.navigate(['/purchase/general-details']);
       // Handle further actions here, e.g., API calls
     }
   }

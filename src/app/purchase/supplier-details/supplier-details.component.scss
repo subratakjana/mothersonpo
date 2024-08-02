@@ -1,0 +1,40 @@
+.pricetop {
+  border: 1px solid #CBCCCB !important;
+  border-right-color: transparent !important;
+}
+
+.pricesec {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-left-color: transparent !important;
+}
+
+.caret-transparent {
+  caret-color: transparent;
+}
+
+.tableview tbody tr:nth-of-type(odd) * {
+  background-color: transparent;
+}
+
+.tableview tbody td {
+  border-bottom: 1px solid #CBCCCB;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 15px;
+  white-space: nowrap;
+}
+
+.table-active td {
+  background-color: #3F2C5F !important;
+  color: #fff !important;
+  border-color: #3F2C5F !important;
+}
+
+.empfiled input[type=checkbox] {
+  width: 45px;
+  height: 22px;
+  border-radius: 50px !important;
+  background-color: #594170;
+  margin-right: 10px;
+}
