@@ -10,6 +10,7 @@ import { Router } from '@angular/router'; // Import Router
 export class MaterialDetailsComponent {
   materialDetailsForm: FormGroup;
   currentStep: number = 3;
+  
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.materialDetailsForm = this.fb.group({

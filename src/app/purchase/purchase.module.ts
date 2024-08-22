@@ -16,12 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GeneralDetailsComponent } from './general-details/general-details.component';
 import { CalendarModule } from 'primeng/calendar';
 import { supplierDetailsComponent } from './supplier-details/supplier-details.component';
-import { ConfirmationDetailsComponent } from './confirmation-details/confirmation-details.component';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { MaterialDetailsComponent } from './material-details/material-details.component';
 import { PaymentTaxDetailsComponent } from './payment-tax-details/payment-tax-details.component';
-
+import { ConfirmationDetailsComponent } from './confirmation-details/confirmation-details.component';
 //Directive
 import { PhoneNumberDirective } from '../directive/phone-number.directive';
 import { AllowOnlyNumbersDirective } from '../directive/allow-only-numbers.directive';
@@ -35,12 +34,14 @@ import { AllowTextAndNumbersDirective } from '../directive/allow-text-and-number
 
 
 
+
 const routes: Routes = [
   { path: 'employee-list', component: EmployeeListComponent },
   { path: 'purchase/general-details', component: GeneralDetailsComponent },
   { path: 'purchase/supplier-details', component: supplierDetailsComponent },
   { path: 'purchase/material-details', component: MaterialDetailsComponent },
   { path: 'purchase/payment-tax-details', component: PaymentTaxDetailsComponent },
+  { path: 'purchase/confirmation-details', component: ConfirmationDetailsComponent },
 ];
 
 @NgModule({
@@ -48,7 +49,6 @@ const routes: Routes = [
     EmployeeListComponent,
     GeneralDetailsComponent,
     supplierDetailsComponent,
-    ConfirmationDetailsComponent,
 
     //Directive
     PhoneNumberDirective,
@@ -61,7 +61,8 @@ const routes: Routes = [
     TransformToUpperDirective,
     AllowTextAndNumbersDirective,
     MaterialDetailsComponent,
-    PaymentTaxDetailsComponent
+    PaymentTaxDetailsComponent,
+    ConfirmationDetailsComponent
   ],
   imports: [
     CommonModule,

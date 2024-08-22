@@ -580,3 +580,44 @@ select.ng-invalid.ng-touched {
 .theme-green .bs-datepicker-body table td[class*=select-] span:after {
   background-color: $purple !important;
 }
+
+input.custom-datepicker {
+  &::placeholder {
+    /* Most modern browsers */
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  &::-webkit-input-placeholder {
+    /* WebKit browsers (Chrome, Safari) */
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4-18 */
+    color: #000000 !important;
+    opacity: 1;
+  }
+}
+.form-check-input[type=checkbox]{
+  border-radius: 0 !important;
+}

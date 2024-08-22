@@ -1,0 +1,213 @@
+@import "../../../assets/styles/main.scss";
+
+
+.tableview {
+
+    .table-responsive::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background-color: $purple;
+        border-radius: 10px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb:hover {
+        background-color: $purple;
+    }
+
+    border: 1px solid $inputBorderColor !important;
+
+    input {
+
+        &:focus,
+        &:active {
+            box-shadow: none;
+            border: 1px solid $purple !important;
+        }
+    }
+
+    input[type=search] {
+
+        &:focus,
+        &:active {
+            border: none !important;
+            box-shadow: none !important;
+        }
+    }
+
+    table {
+        border: none;
+    }
+
+    thead {
+        th {
+            background-color: #1A1919;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 10px 15px;
+            white-space: nowrap;
+
+            &:last-child {
+                text-align: center;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            &:nth-of-type(odd) * {
+                background-color: #F4EFF4;
+            }
+        }
+
+        td {
+            border: none;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 10px 15px;
+            white-space: nowrap;
+
+            &:last-child {
+                text-align: center;
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            box-shadow: 0px -8px 20px rgb(65 65 65 / 20%);
+
+            td {
+                background-color: #fff;
+                border-top: 1px solid #CBCCCB;
+                padding: 10px 20px;
+                border-bottom: none;
+            }
+        }
+    }
+}
+.tableview.tabinner{
+     table{border: inherit;}
+     tbody{
+        tr{
+            background-color: transparent !important;
+            &:nth-of-type(odd) * {
+                background-color: inherit;
+            }
+            &:last-child{
+                margin-bottom: 50px;
+            }
+        }
+        td{
+            border-bottom:1px solid #CBBFCF !important;
+            background-color: transparent !important;
+            padding: 15px 15px !important;
+        }
+     } 
+}
+
+.w-200 {
+    width: 156px;
+}
+
+.wp-100 {
+    width: 100px;
+}
+
+input[type=checkbox] {
+    background-color: inherit !important;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-color: $purple !important;
+    border-color: $purple !important;
+}
+
+.delc i {
+    font-size: 20px;
+    font-weight: 600;
+    color: $purple;
+
+    &:hover,
+    &:focus {
+        color: red;
+        cursor: pointer;
+    }
+}
+
+.chrfiled {
+    label {
+        font-size: $inputLabelSize;
+        line-height: $inputLabelLheight;
+        color: $inputLabelColor;
+        font-weight: $inputLabelWeight;
+
+        span {
+            color: $inputSpanColor;
+        }
+    }
+
+    input,
+    select {
+        height: $inputBoxHight;
+        border: 1px solid $inputBorderColor;
+        border-radius: $inputRounded !important;
+        color: $inputLabelColor;
+        font-size: $inputLabelSize;
+        font-weight: $inputLabelWeight;
+
+        &:focus {
+            box-shadow: none;
+            outline: none;
+            border-color: $purple;
+        }
+
+        &[placeholder] {
+            &::placeholder {
+                color: $inputplaceholderColor;
+                opacity: 1;
+            }
+        }
+
+        &[disabled] {
+            background-color: $inputDisbleColor;
+            border-color: transparent;
+            text-align: center;
+            color: $inputLabelColor;
+            cursor: not-allowed;
+
+            &::placeholder {
+                color: $inputLabelColor;
+            }
+        }
+    }
+}
+
+
+.chrfiled {
+    input[type="checkbox"] {
+        width: 45px;
+        height: 22px;
+        border-radius: 50px !important;
+        background-color: $purple;
+        margin-right: 10px;
+    }
+}
+
+.form-check-input {
+    border-radius: 0 !important;
+    font-size: $inputLabelSize;
+
+    &:checked {
+        background-color: $purple;
+        border-color: $purple;
+    }
+
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+        border-color: $purple;
+    }
+}

@@ -40,8 +40,8 @@ export class supplierDetailsComponent implements OnInit {
       creditterm: ['', Validators.required],
       pricebasis: [''],
       currency: this.fb.group({
-        inr: [''],
-        usd: [''],
+        inr: ['null'],
+        usd: ['null']
       }),
       closingvalue: [''],
       costcentre: ['']

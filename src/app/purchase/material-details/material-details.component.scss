@@ -1,0 +1,52 @@
+table {
+    th{
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background-color: #1A1919;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 10px 15px;
+        white-space: nowrap;
+    }
+    td {
+        &.sticky-column {
+            position: -webkit-sticky;
+            position: sticky;
+            left: 0;
+            z-index: 2;
+        }
+
+        &:nth-child(2) {
+            left: 00px;
+            z-index: 1;
+        }
+
+        &:nth-child(3) {
+            left: 190px;
+            z-index: 1;
+        }
+    }
+}
+.offcanvas.offcanvas-end{
+    width: 900px !important;
+}
+.tableview.tabinner{
+    table{border: inherit;}
+    tbody{
+       tr{
+           background-color: transparent !important;
+           &:nth-of-type(odd) * {
+               background-color: inherit;
+           }
+       }
+       td{
+           border-bottom:1px solid #CBBFCF !important;
+           background-color: transparent !important;
+           color: #1A1919;
+           font-weight: 500;
+       }
+    } 
+}

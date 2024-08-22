@@ -25,7 +25,7 @@ export class PaymentTaxDetailsComponent {
       console.log(this.paymentDetailsForm.value);
       this.currentStep++;
       if (this.currentStep === 4) {
-        this.router.navigate(['purchase/general-details']); // Navigate to the assets Details page
+        this.router.navigate(['purchase/confirmation-details']); // Navigate to the assets Details page
       }
       // Handle other steps and navigation
     } else {
@@ -37,7 +37,7 @@ export class PaymentTaxDetailsComponent {
     if (this.paymentDetailsForm.valid) {
       this.currentStep++;
       if (this.currentStep === 4) {
-        this.router.navigate(['purchase/general-details']); // Navigate to the assets Details page
+        this.router.navigate(['purchase/confirmation-details']); // Navigate to the assets Details page
       }
       // Handle other steps and navigation
     } else {
@@ -50,7 +50,7 @@ export class PaymentTaxDetailsComponent {
   }
   onSubmit() {
     if (this.paymentDetailsForm.valid) {
-      this.router.navigate(['/login-otp']);
+      this.router.navigate(['purchase/confirmation-details']);
     } else {
       console.log('Form is not valid');
     }

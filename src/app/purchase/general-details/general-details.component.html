@@ -55,7 +55,8 @@
                       <div class="input-group mb-4">
                         <label for="ponumber" class="form-label">PO number <span class="text-danger">*</span></label>
                         <div class="input-group">
-                          <input type="text" id="ponumber" class="form-control" formControlName="ponumber" appAllowOnlyNumbers appMaxlength="10">
+                          <input type="text" id="ponumber" class="form-control" formControlName="ponumber"
+                            appAllowOnlyNumbers appMaxlength="10">
                         </div>
                         <small *ngIf="purchaseForm.get('ponumber')?.touched && purchaseForm.get('ponumber')?.invalid"
                           class="text-danger">
@@ -174,8 +175,13 @@
                     <div class="empfiled">
                       <div class="input-group mb-4">
                         <label for="Type" class="form-label">Type <span>*</span></label>
-                        <div class="input-group">
-                          <input type="text" id="Type" class="form-control" formControlName="Type" appAllowOnlyText>
+                        <div class="input-group select-with-icon">
+                          <select class="form-select" id="Type" formControlName="Type">
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
                         </div>
                         <small *ngIf="purchaseForm.get('Type')?.touched && purchaseForm.get('Type')?.invalid"
                           class="text-danger">
@@ -191,109 +197,129 @@
                         <label for="NaturePO" class="form-label">Nature of PO</label>
                         <div class="input-group">
                           <div class="form-check form-check-inline mb-0">
-                            <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" formControlName="NaturePO" name="NaturePO">
+                            <input class="form-check-input" type="radio" id="inlineRadio1" value="option1"
+                              formControlName="NaturePO" name="NaturePO">
                             <label class="form-check-label" for="inlineRadio1">Open</label>
                           </div>
                           <div class="form-check form-check-inline mb-0">
-                            <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" formControlName="NaturePO" name="NaturePO">
+                            <input class="form-check-input" type="radio" id="inlineRadio2" value="option2"
+                              formControlName="NaturePO" name="NaturePO">
                             <label class="form-check-label" for="inlineRadio2">Closed</label>
                           </div>
                           <div class="form-check form-check-inline mb-0">
-                            <input class="form-check-input" type="radio" id="inlineRadio3" value="option3" formControlName="NaturePO" name="NaturePO">
+                            <input class="form-check-input" type="radio" id="inlineRadio3" value="option3"
+                              formControlName="NaturePO" name="NaturePO">
                             <label class="form-check-label" for="inlineRadio3">Multiple open</label>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-8 col-12">
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="row gx-2">
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="empfiled">
+                                  <div class="input-group mb-4">
+                                    <label for="Validfrom" class="form-label">Valid from</label>
+                                    <div class="input-group date-with-icon">
+                                      <input type="text" autocomplete="off" class="form-control custom-datepicker"
+                                        bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
+                                        placeholder="dd/mm/yyyy" id="Validfrom" appPreventTextInput
+                                        formControlName="Validfrom">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Valid to -->
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="empfiled">
+                                  <div class="input-group mb-4">
+                                    <label for="Validto" class="form-label">Valid to</label>
+                                    <div class="input-group date-with-icon">
+                                      <input type="text" autocomplete="off" class="form-control custom-datepicker"
+                                        bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
+                                        placeholder="dd/mm/yyyy" id="Validto" appPreventTextInput
+                                        formControlName="Validto">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="empfiled">
+                                  <div class="input-group mb-4">
+                                    <label for="Requireddate" class="form-label">Required date <span
+                                        class="text-danger">*</span></label>
+                                    <div class="input-group date-with-icon">
+                                      <input type="text" autocomplete="off" class="form-control custom-datepicker"
+                                        bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
+                                        placeholder="dd/mm/yyyy" id="Requireddate" appPreventTextInput
+                                        formControlName="Requireddate">
+                                    </div>
+                                    <small
+                                      *ngIf="purchaseForm.get('Requireddate')?.touched && purchaseForm.get('Requireddate')?.invalid"
+                                      class="text-danger">
+                                      Required date is required.
+                                    </small>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="empfiled">
+                              <div class="input-group mb-4">
+                                <label for="Salesorder" class="form-label">Sales order</label>
+                                <div class="input-group select-with-icon">
+                                  <select class="form-select" id="Salesorder" formControlName="Salesorder">
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Document number -->
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="empfiled">
+                              <div class="input-group mb-4">
+                                <label for="docnumber" class="form-label">Document number</label>
+                                <div class="input-group">
+                                  <input type="text" id="docnumber" class="form-control" formControlName="docnumber"
+                                    appAllowOnlyNumbers>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="empfiled">
+                          <div class="input-group mb-4">
+                            <label for="Attachments" class="form-label">Attachments</label>
+                            <div class="input-group">
+                              <div class="upload-container w-100">
+                                <input type="file" id="Attachments" class="file-upload" formControlName="Attachments">
+                                <label for="Attachments" class="file-upload-label">
+                                  <div class="cliup">Click to upload</div> <span> or drag and drop</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                  <!-- Valid from -->
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                    <div class="row gx-2">
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="empfiled">
-                          <div class="input-group mb-4">
-                            <label for="Validfrom" class="form-label">Valid from</label>
-                            <div class="input-group date-with-icon">
-                              <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
-                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
-                                placeholder="dd/mm/yyyy" id="Validfrom" appPreventTextInput formControlName="Validfrom">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Valid to -->
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="empfiled">
-                          <div class="input-group mb-4">
-                            <label for="Validto" class="form-label">Valid to</label>
-                            <div class="input-group date-with-icon">
-                              <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
-                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }"
-                                placeholder="dd/mm/yyyy" id="Validto" appPreventTextInput formControlName="Validto">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Required date -->
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                    <div class="empfiled">
-                      <div class="input-group mb-4">
-                        <label for="Requireddate" class="form-label">Required date <span
-                            class="text-danger">*</span></label>
-                        <div class="input-group date-with-icon">
-                          <input type="text" autocomplete="off" class="form-control custom-datepicker" bsDatepicker
-                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }" placeholder="dd/mm/yyyy"
-                            id="Requireddate" appPreventTextInput formControlName="Requireddate">
-                        </div>
-                        <small
-                          *ngIf="purchaseForm.get('Requireddate')?.touched && purchaseForm.get('Requireddate')?.invalid"
-                          class="text-danger">
-                          Required date is required.
-                        </small>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Attachments -->
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                    <div class="empfiled">
-                      <div class="input-group mb-4">
-                        <label for="Attachments" class="form-label">Attachments</label>
-                        <div class="input-group">
-                          <div class="upload-container w-100">
-                            <input type="file" id="Attachments" class="file-upload" formControlName="Attachments">
-                            <label for="Attachments" class="file-upload-label">
-                              Click to upload <span> or drag and drop</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Sales order -->
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                    <div class="empfiled">
-                      <div class="input-group mb-4">
-                        <label for="Salesorder" class="form-label">Sales order</label>
-                        <div class="input-group">
-                          <input type="text" id="Salesorder" class="form-control" formControlName="Salesorder" appAllowTextAndNumbers>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Document number -->
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                    <div class="empfiled">
-                      <div class="input-group mb-4">
-                        <label for="docnumber" class="form-label">Document number</label>
-                        <div class="input-group">
-                          <input type="text" id="docnumber" class="form-control" formControlName="docnumber" appAllowOnlyNumbers>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <!-- Form buttons -->
                 <div class="formse">

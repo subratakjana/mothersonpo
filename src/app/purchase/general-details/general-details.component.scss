@@ -1,0 +1,12 @@
+@import "../../../assets/styles/main.scss";
+
+.file-upload-label{
+    padding: 0 !important;
+    justify-content: start !important;
+    .cliup{
+        padding: 8px 14px;
+        background-color: $purple;
+        color: #fff;
+        border-radius: 6px;
+    }
+}
